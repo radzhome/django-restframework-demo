@@ -1,6 +1,9 @@
 from django.conf.urls import patterns, url
 from rest_framework.urlpatterns import format_suffix_patterns
+#from django.conf.urls import include
+
 from snippets import views
+
 
 urlpatterns = [
     url(r'^snippets/$', views.SnippetList.as_view()),
@@ -10,3 +13,4 @@ urlpatterns = [
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+
