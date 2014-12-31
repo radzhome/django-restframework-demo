@@ -3,9 +3,13 @@ from rest_framework import serializers
 from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 
 class SnippetSerializer(serializers.ModelSerializer):
+
+    # Same as CharField(read_only=True)
+    owner = serializers.ReadOnlyField(source='owner.username')
+
     class Meta:
         model = Snippet
-        fields = ('id', 'title', 'code', 'linenos', 'language', 'style')
+        fields = ('id', 'title', 'code', 'linenos', 'language', 'style', 'owner')
 
 from django.contrib.auth.models import User
 
